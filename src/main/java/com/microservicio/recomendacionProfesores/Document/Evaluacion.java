@@ -10,10 +10,9 @@ public class Evaluacion {
     @Id
     private ObjectId id;
 
-    private String idProfesor;
+    private ObjectId idProfesor;
     private String usuarioEstudiante;
     private int estrellas;
-    private String fecha;
 
     // Getters and Setters
 
@@ -26,11 +25,11 @@ public class Evaluacion {
     }
 
     public String getIdProfesor() {
-        return idProfesor;
+        return idProfesor != null ? idProfesor.toHexString() : null;
     }
 
     public void setIdProfesor(String idProfesor) {
-        this.idProfesor = idProfesor;
+        this.idProfesor = idProfesor != null ? new ObjectId(idProfesor) : null;
     }
 
     public String getUsuarioEstudiante() {
@@ -49,12 +48,5 @@ public class Evaluacion {
         this.estrellas = estrellas;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
 }
 

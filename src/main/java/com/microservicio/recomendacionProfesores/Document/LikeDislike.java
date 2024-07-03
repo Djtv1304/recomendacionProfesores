@@ -10,7 +10,7 @@ public class LikeDislike {
     @Id
     private ObjectId id;
 
-    private String idProfesor;
+    private ObjectId idProfesor;
     private String usuarioEstudiante;
     private boolean like;
 
@@ -25,11 +25,11 @@ public class LikeDislike {
     }
 
     public String getIdProfesor() {
-        return idProfesor;
+        return idProfesor != null ? idProfesor.toHexString() : null;
     }
 
     public void setIdProfesor(String idProfesor) {
-        this.idProfesor = idProfesor;
+        this.idProfesor = idProfesor != null ? new ObjectId(idProfesor) : null;
     }
 
     public String getUsuarioEstudiante() {
