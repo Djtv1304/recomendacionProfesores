@@ -49,7 +49,7 @@ public class EvaluacionController {
     }
 
     @PostMapping("/evaluaciones")
-    public Evaluacion saveEvaluacion(Evaluacion evaluacionNueva) {
+    public Evaluacion saveEvaluacion(@RequestBody Evaluacion evaluacionNueva) {
 
         if ( evaluacionNueva.getId() == null || evaluacionNueva.getId().isEmpty() ) {
             evaluacionNueva.setId(new ObjectId().toHexString());

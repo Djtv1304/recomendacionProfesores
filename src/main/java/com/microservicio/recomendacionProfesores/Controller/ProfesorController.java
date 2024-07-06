@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ProfesorController {
@@ -55,10 +56,11 @@ public class ProfesorController {
     }
 
     @PutMapping("/docentesRecomendados/updateEstadoByCorreo")
-    public Profesor updateEstadoDocenteByCorreo(@RequestBody String correoProfesor, @RequestBody String estadoNuevo) {
-
+    public Profesor updateEstadoDocenteByCorreo(@RequestBody Map<String, String> body) {
+        String correoProfesor = body.get("correoProfesor");
+        String estadoNuevo = body.get("estadoNuevo");
         return profesorService.updateEstadoByCorreo(correoProfesor, estadoNuevo);
-
     }
+
 
 }
